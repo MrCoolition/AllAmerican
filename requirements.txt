@@ -7,3 +7,4 @@ psycopg2-binary==2.9.9
 sendgrid==6.11.0
 twilio==9.1.0
 python-dotenv==1.0.1
+streamlit==1.37.0
