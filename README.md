@@ -9,4 +9,4 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-Set environment variables as described in `.env.example`.
+Copy `example.toml` to `.streamlit/secrets.toml` and fill in your credentials. The application reads settings via `st.secrets` or environment variables.
