@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.db import init_db
-from app.twilio_routes import router as voice_router
-from app.ws_handler import router as ws_router
+from .db import init_db
+from .twilio_routes import router as voice_router
+from .ws_handler import router as ws_router
 
 app = FastAPI(title="Dash Movers Voice Agent")
 
