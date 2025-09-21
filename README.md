@@ -24,7 +24,11 @@ TWILIO_NUMBER = "+15555551234"
 TWILIO_FORWARD_NUMBER = "+15555559876"
 
 # Email + voice
-SENDGRID_API_KEY = "your-sendgrid-api-key"
+AWS_SES_REGION = "us-east-1"
+AWS_SES_ACCESS_KEY_ID = "your-aws-access-key-id"
+AWS_SES_SECRET_ACCESS_KEY = "your-aws-secret-access-key"
+# Optional: provide a configuration set name if you use one
+AWS_SES_CONFIGURATION_SET = ""
 FROM_EMAIL = "no-reply@example.com"
 ELEVENLABS_VOICE_ID = "your-voice-id"
 
