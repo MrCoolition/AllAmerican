@@ -39,3 +39,6 @@ COMPANY_CITY = "Your City"
 ```
 
 When running the FastAPI app outside of Streamlit, the configuration loader will read from `.streamlit/secrets.toml` directly, so no environment variables are required.
+
+## Estimate logic
+For owners or operators who need the exact mechanics behind the pricing tool, see `docs/estimate_logic.md` for the inputs, default rule set, and calculation order used by `compute_quote`.
