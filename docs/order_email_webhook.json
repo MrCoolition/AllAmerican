@@ -1,0 +1,131 @@
+{
+  "type": "webhook",
+  "name": "Order_Email",
+  "description": "Send finalized move leads to the Dash Movers API instead of the legacy Zapier hook.",
+  "disable_interruptions": false,
+  "force_pre_tool_speech": "auto",
+  "assignments": [],
+  "tool_call_sound": null,
+  "tool_call_sound_behavior": "auto",
+  "execution_mode": "immediate",
+  "api_schema": {
+    "url": "https://estimate-moving-price.onrender.com/orders/email",
+    "method": "POST",
+    "path_params_schema": [],
+    "query_params_schema": [],
+    "request_body_schema": {
+      "id": "body",
+      "type": "object",
+      "description": "Submit the caller's contact info, move details, and the fully itemized estimate calculation used.",
+      "properties": [
+        {
+          "id": "phone",
+          "type": "string",
+          "value_type": "llm_prompt",
+          "description": "Phone number of the caller",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "enum": null,
+          "is_system_provided": false,
+          "required": true
+        },
+        {
+          "id": "item_details",
+          "type": "string",
+          "value_type": "llm_prompt",
+          "description": "Clean inventory list the caller provided",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "enum": null,
+          "is_system_provided": false,
+          "required": true
+        },
+        {
+          "id": "estimate_price",
+          "type": "number",
+          "value_type": "llm_prompt",
+          "description": "Final estimate price given to the caller",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "enum": null,
+          "is_system_provided": false,
+          "required": true
+        },
+        {
+          "id": "move_date",
+          "type": "string",
+          "value_type": "llm_prompt",
+          "description": "Move date and whether it falls on a weekday or weekend",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "enum": null,
+          "is_system_provided": false,
+          "required": true
+        },
+        {
+          "id": "locations",
+          "type": "string",
+          "value_type": "llm_prompt",
+          "description": "Origin and destination addresses",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "enum": null,
+          "is_system_provided": false,
+          "required": true
+        },
+        {
+          "id": "estimate_calculation_table",
+          "type": "string",
+          "value_type": "llm_prompt",
+          "description": "Full itemized inventory, weights, fees, and calculation logic",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "enum": null,
+          "is_system_provided": false,
+          "required": true
+        },
+        {
+          "id": "name",
+          "type": "string",
+          "value_type": "llm_prompt",
+          "description": "First and last name of the caller",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "enum": null,
+          "is_system_provided": false,
+          "required": true
+        },
+        {
+          "id": "stairwells",
+          "type": "string",
+          "value_type": "llm_prompt",
+          "description": "Stairwell/elevator info and floors at each location",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "enum": null,
+          "is_system_provided": false,
+          "required": true
+        },
+        {
+          "id": "email",
+          "type": "string",
+          "value_type": "llm_prompt",
+          "description": "Email address of the caller",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "enum": null,
+          "is_system_provided": false,
+          "required": true
+        }
+      ],
+      "required": true,
+      "value_type": "llm_prompt"
+    },
+    "request_headers": [],
+    "auth_connection": null
+  },
+  "response_timeout_secs": 25,
+  "dynamic_variables": {
+    "dynamic_variable_placeholders": {}
+  }
+}
