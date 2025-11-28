@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .db import init_db
+from .order_routes import router as order_router
 from .twilio_routes import router as voice_router
 from .ws_handler import router as ws_router
 
@@ -16,6 +17,7 @@ app.add_middleware(
 )
 
 app.include_router(voice_router)
+app.include_router(order_router)
 app.include_router(ws_router)
 
 @app.on_event("startup")
