@@ -1,0 +1,72 @@
+{
+  "type": "webhook",
+  "name": "Estimate_Move_Price",
+  "description": "Determine the estimated cost of the move based on the caller's inventory, distance and move date.",
+  "disable_interruptions": false,
+  "force_pre_tool_speech": "auto",
+  "assignments": [],
+  "tool_call_sound": null,
+  "tool_call_sound_behavior": "auto",
+  "execution_mode": "immediate",
+  "api_schema": {
+    "url": "https://estimate-moving-price.onrender.com/estimate",
+    "method": "POST",
+    "path_params_schema": [],
+    "query_params_schema": [],
+    "request_body_schema": {
+      "id": "body",
+      "type": "object",
+      "description": "Collect all items and their quantities from the caller. \nPlace them into a single JSON object named \"items\", \nwhere the keys are item identifiers and the values are the quantities.\n\nAlso collect:\n- distance_miles: the number of miles between origin and destination\n- move_date: the date of the move in YYYY-MM-DD format\n\nSample JSON:\n{\n  \"items\": {\n    \"bed_king_mattress\": 1,\n    \"bar_stool\": 4\n  },\n  \"distance_miles\": 15,\n  \"move_date\": \"2025-07-08\"\n}\n",
+      "properties": [
+        {
+          "id": "distance_miles",
+          "type": "number",
+          "value_type": "llm_prompt",
+          "description": "miles between origin and destination",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "enum": null,
+          "is_system_provided": false,
+          "required": true
+        },
+        {
+          "id": "move_date",
+          "type": "string",
+          "value_type": "llm_prompt",
+          "description": "Date of the move (YYYY-MM-DD)",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "enum": null,
+          "is_system_provided": false,
+          "required": true
+        },
+        {
+          "id": "items",
+          "type": "array",
+          "description": "List of items with quantities to be moved.",
+          "items": {
+            "id": "items_item",
+            "type": "string",
+            "value_type": "llm_prompt",
+            "description": "Name of the item (e.g. refrigerator, bed_king_mattress)",
+            "dynamic_variable": "",
+            "constant_value": "",
+            "enum": null,
+            "is_system_provided": false,
+            "required": false
+          },
+          "required": true,
+          "value_type": "llm_prompt"
+        }
+      ],
+      "required": false,
+      "value_type": "llm_prompt"
+    },
+    "request_headers": [],
+    "auth_connection": null
+  },
+  "response_timeout_secs": 25,
+  "dynamic_variables": {
+    "dynamic_variable_placeholders": {}
+  }
+}
